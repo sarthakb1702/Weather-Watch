@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f8ff; }
+    form { margin-bottom: 20px; }
+    input, button { padding: 8px; font-size: 16px; }
+    .card { padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <h1>🌤 Weather Dashboard</h1>
+  <form method="post">
+    <input type="text" name="city" placeholder="Enter city (e.g. London or Paris,FR)" required>
+    <button type="submit">Get Weather</button>
+  </form>
+
+  {% if weather %}
+    {% if weather.error %}
+      <p style="color: red;"><strong>Error:</strong> {{ weather.error|capitalize }}</p>
+    {% else %}
+      <div class="card">
+        <h2>{{ weather.city }}</h2>
+        <p><strong>Temperature:</strong> {{ weather.temperature }} °C</p>
+        <p><strong>Humidity:</strong> {{ weather.humidity }}%</p>
+        <p><strong>Condition:</strong> {{ weather.description }}</p>
+      </div>
+    {% endif %}
+  {% endif %}
+</body>
+</html>
