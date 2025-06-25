@@ -13,7 +13,6 @@ A simple Flask-based web app that lets users check the current weather of any ci
 ## Technologies Used
 - Python 3
 - Flask
-- HTML/CSS
 - WeatherAPI.com (for real-time weather data)
 
 ## Setup Instructions
